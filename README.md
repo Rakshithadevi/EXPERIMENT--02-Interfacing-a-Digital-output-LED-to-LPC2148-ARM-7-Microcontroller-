@@ -115,32 +115,47 @@ Step 9: Select the hex file from the Kiel program folder and import the program 
 
 ## Kiel - Program for LED blinking ON  and  OFF (blinking)
 ```
+//programming mc - Prof. vasanth kumar.ch 
+
 #include <lpc214x.h>
+
 void delay_ms(unsigned int count)
 {
-	unsigned int j=0,i=0;
-	for(j=0;j<count;j++)
-	{
-		for(i=0;i<3000;i++);
-	}
+  unsigned int j=0,i=0;
+
+  for(j=0;j<count;j++)
+  {
+    for(i=0;i<3000;i++);
+  }
 }
-int main()
+
+int main() 
 {
-	PINSEL2=0x000000;
-	IO1DIR=0xffffffff;
-	while(1)
-	{
-		IO1SET=0xffffffff;
-		delay_ms(1000);
-		
-		IO1CLR=0xffffffff;
-		delay_ms(1000);
-		
-	}
+
+    PINSEL2 = 0x000000;  //Configure the P1 Pins for GPIO;
+    IO1DIR = 0xffffffff; //Configure the P1 pins as OUTPUT;
+
+  while(1)
+    {
+
+       IO1SET = 0xffffffff;     // Make all the Port pins as high  
+         delay_ms(1000);
+
+
+       IO1CLR = 0xffffffff;     // Make all the Port pins as low  
+         delay_ms(1000);
+    }
 }
 ```
 
 ## Output screen shots :
+
+![image](https://user-images.githubusercontent.com/94165326/192090544-021d704e-d966-43fd-ad5a-cbf41723ef66.png)
+
+![image](https://user-images.githubusercontent.com/94165326/192090551-861d9f6a-4121-405d-ad47-c2be4836d27b.png)
+
+![image](https://user-images.githubusercontent.com/94165326/192090558-173c9f95-212d-4c6f-8f0f-b218df72d633.png)
+
 
  
 ## Result :
